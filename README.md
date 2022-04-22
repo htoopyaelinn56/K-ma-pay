@@ -1,6 +1,7 @@
 # K-Ma-Pay
 
-Money Transfer App Using Firebase 
+Money Transfer App Using Firebase <br>
+All backend are handled with Firebase only
 
 ## Features
 
