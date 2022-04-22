@@ -1,4 +1,4 @@
-# money_transfer
+# K-Ma-Pay
 
 A new Flutter project.
 
