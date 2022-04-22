@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "687568980582",
+    "project_id": "kpay-app",
+    "storage_bucket": "kpay-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687568980582:android:3ee8326b342c3ed64efba7",
+        "android_client_info": {
+          "package_name": "com.example.kpay_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687568980582-bmdm653jlm7kd0c3t40aqsqcm1kok1lb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDie1xnOUvHSTL0UKujnps1KLdj4xK2vXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687568980582-bmdm653jlm7kd0c3t40aqsqcm1kok1lb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687568980582:android:95367a0f5a289fed4efba7",
+        "android_client_info": {
+          "package_name": "com.example.money_transfer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687568980582-bmdm653jlm7kd0c3t40aqsqcm1kok1lb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDie1xnOUvHSTL0UKujnps1KLdj4xK2vXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687568980582-bmdm653jlm7kd0c3t40aqsqcm1kok1lb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,50 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:money_transfer/DetailScreenPages/details_main.dart';
+import 'package:money_transfer/DetailScreenPages/details_settings.dart';
+import 'package:money_transfer/constants.dart';
+
+class DetailsScreen extends StatefulWidget {
+  static String detailsScreenRoute = 'detailsScreenRoute';
+
+  @override
+  State<DetailsScreen> createState() => _DetailsScreenState();
+}
+
+class _DetailsScreenState extends State<DetailsScreen> {
+  int currentIndex = 0;
+
+  List<Widget> pagesList = [
+    DetailsHome(),
+    DetailsSettings(),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: mainColor,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_balance),
+              label: 'Details',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+          currentIndex: currentIndex,
+          selectedItemColor: componentColor,
+          onTap: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+        ),
+        body: pagesList.elementAt(currentIndex),
+      ),
+    );
+  }
+}
