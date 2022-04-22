@@ -24,10 +24,9 @@ class TopUpPage extends StatelessWidget {
                   cardList[index].name;
               Provider.of<MyProvider>(context, listen: false).giftCardUrl =
                   cardList[index].imgUrl;
-              Navigator.pushNamedAndRemoveUntil(
+              Navigator.pushNamed(
                 context,
                 GiftCardBuy.giftCardBuyRoute,
-                (Route<dynamic> route) => false,
               );
             },
           );

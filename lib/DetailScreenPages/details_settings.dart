@@ -9,9 +9,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class DetailsSettings extends StatelessWidget {
   FirebaseAuth _auth = FirebaseAuth.instance;
-  FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  void _logutAction(BuildContext context) async {
+  void _logoutAction(BuildContext context) async {
     await _auth.signOut();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove('email');
@@ -57,7 +56,7 @@ class DetailsSettings extends StatelessWidget {
           SettingsButton(
               buttonText: 'Logout',
               buttonAction: () {
-                _logutAction(context);
+                _logoutAction(context);
               }),
         ],
       ),
