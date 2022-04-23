@@ -21,50 +21,62 @@ class DetailsSettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5),
-            child: Text(
-              'Settings',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(fontSize: 55.0),
-            ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: Text(
+                  'Settings',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(fontSize: 55.0),
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: 2.0,
+                child: Container(
+                  color: componentColor,
+                ),
+              ),
+              const SizedBox(height: 5),
+              SettingsButton(
+                  buttonText: 'Change username',
+                  buttonAction: () {
+                    Navigator.pushNamed(context,
+                        ChangeUserNameScreen.changeUserNameScreenRoute);
+                  }),
+              const SizedBox(height: 5),
+              SettingsButton(
+                  buttonText: 'Change password',
+                  buttonAction: () {
+                    Navigator.pushNamed(context,
+                        ChangePasswordScreen.changePasswordScreenRoute);
+                  }),
+              const SizedBox(height: 5),
+              SettingsButton(
+                  buttonText: 'Logout',
+                  buttonAction: () {
+                    _logoutAction(context);
+                  }),
+            ],
           ),
-          SizedBox(
-            width: double.infinity,
-            height: 2.0,
-            child: Container(
-              color: componentColor,
-            ),
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+          child: Text(
+            'version : 2.0.0',
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
           ),
-          const SizedBox(height: 5),
-          SettingsButton(
-              buttonText: 'Change username',
-              buttonAction: () {
-                Navigator.pushNamed(
-                    context, ChangeUserNameScreen.changeUserNameScreenRoute);
-              }),
-          const SizedBox(height: 5),
-          SettingsButton(
-              buttonText: 'Change password',
-              buttonAction: () {
-                Navigator.pushNamed(
-                    context, ChangePasswordScreen.changePasswordScreenRoute);
-              }),
-          const SizedBox(height: 5),
-          SettingsButton(
-              buttonText: 'Logout',
-              buttonAction: () {
-                _logoutAction(context);
-              }),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

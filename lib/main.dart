@@ -52,9 +52,10 @@ class MyApp extends StatelessWidget {
             selectedItemColor: textColor,
           ),
           textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: textColor,
-              displayColor: textColor,
-              fontFamily: 'Poppin'),
+                bodyColor: textColor,
+                displayColor: textColor,
+                fontFamily: 'Poppin',
+              ),
         ),
         initialRoute: initialRoute,
         routes: {
