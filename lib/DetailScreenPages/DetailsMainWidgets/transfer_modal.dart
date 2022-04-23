@@ -26,7 +26,7 @@ class _TransferModelState extends State<TransferModel> {
 
   void transferProcess(BuildContext context) async {
     Provider.of<MyProvider>(context, listen: false)
-        .checkTransferEmail(widget.emailController.text);
+        .checkTransferEmail(widget.emailController.text.trim());
     Provider.of<MyProvider>(context, listen: false)
         .checkTransferMoney(widget.moneyController.text);
     bool perfectCondition =
@@ -37,7 +37,8 @@ class _TransferModelState extends State<TransferModel> {
       _isLoading = true;
     });
     if (perfectCondition) {
-      if (_auth.currentUser?.email.toString() == widget.emailController.text) {
+      if (_auth.currentUser?.email.toString() ==
+          widget.emailController.text.trim()) {
         showDialog(
           context: context,
           builder: (context) => ErrorDialog(
@@ -60,7 +61,7 @@ class _TransferModelState extends State<TransferModel> {
                 await for (var i in _db.collection('money').get().asStream()) {
                   for (var i in i.docs) {
                     //find recipient
-                    if (i.get('email') == widget.emailController.text) {
+                    if (i.get('email') == widget.emailController.text.trim()) {
                       recipientGold = i.get('gold') +
                           int.parse(widget.moneyController.text);
                       //trade process //inc gold
@@ -180,7 +181,8 @@ class _TransferModelState extends State<TransferModel> {
                         emailList.add(i.get('email'));
                       }
                     }
-                    if (emailList.contains(widget.emailController.text)) {
+                    if (emailList
+                        .contains(widget.emailController.text.trim())) {
                       transferProcess(context);
                     } else {
                       Provider.of<MyProvider>(context, listen: false)

@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (!providerData.loginPwdError && !providerData.loginEmailError) {
       try {
         await _auth.signInWithEmailAndPassword(
-            email: _emailController.text, password: _pwdController.text);
+            email: _emailController.text.trim(), password: _pwdController.text);
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('email', _auth.currentUser!.email!);
         //to next page
@@ -48,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
           context,
           DetailsScreen.detailsScreenRoute,
         );
-      } on FirebaseException {
+      } on FirebaseException catch (e) {
         showDialog<void>(
           context: context,
           barrierDismissible: true, // user must tap button!
