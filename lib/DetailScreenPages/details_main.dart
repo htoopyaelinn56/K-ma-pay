@@ -41,6 +41,7 @@ class DetailsHome extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 child: DetailsButton(
@@ -68,7 +69,7 @@ class DetailsHome extends StatelessWidget {
               ),
               Expanded(
                 child: DetailsButton(
-                  buttonText: 'Gift Cards',
+                  buttonText: '   Gift\n Cards',
                   buttonAction: () {
                     Navigator.pushNamed(context, TopUpPage.topUpPageRoute);
                   },

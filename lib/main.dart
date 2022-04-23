@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:money_transfer/DetailScreenPages/DetailsPayBill/bill_pay_screen.dart';
 import 'package:money_transfer/DetailScreenPages/SettingScreens/change_password.dart';
 import 'package:money_transfer/DetailScreenPages/SettingScreens/change_username.dart';
@@ -30,12 +31,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<MyProvider>(create: (context) => MyProvider()),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: mainColor,
           appBarTheme: AppBarTheme(

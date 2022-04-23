@@ -4,7 +4,7 @@ import 'package:money_transfer/datamodels/pay_bill_object.dart';
 
 Color mainColor = const Color(0xff181b35);
 Color mainLightColor = const Color(0xffDEE4E7);
-Color componentColor = Colors.indigo.shade900;
+Color componentColor = Colors.purple.shade900;
 Color textColor = const Color(0xffffacceff);
 var progressIndicator = const SizedBox(
   width: 50,

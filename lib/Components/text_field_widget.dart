@@ -35,7 +35,7 @@ class MyTextField extends StatelessWidget {
             fontSize: 16,
           ),
           labelText: hintText,
-          labelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          labelStyle: TextStyle(fontWeight: FontWeight.bold, color: textColor),
           errorBorder: const OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.red,

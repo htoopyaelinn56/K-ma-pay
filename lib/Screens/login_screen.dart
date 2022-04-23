@@ -61,6 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
             );
           },
         );
+        _pwdController.text = '';
       }
     }
     setState(() {

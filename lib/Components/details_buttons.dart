@@ -36,7 +36,7 @@ class DetailsButton extends StatelessWidget {
           buttonText,
           style: const TextStyle(
             fontWeight: FontWeight.w500,
-            fontSize: 16,
+            fontSize: 15,
           ),
         ),
       ],
