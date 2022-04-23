@@ -14,3 +14,8 @@ All backend are handled with Firebase only
 
 ## Screenshots
 
+<img src="Screenshot_1650683096.png" alt="drawing" width="200"/> <img src="Screenshot_1650687140.png" alt="drawing" width="200"/> 
+<img src="Screenshot_1650687144.png" alt="drawing" width="200"/> <img src="Screenshot_1650687148.png" alt="drawing" width="200"/> 
+<img src="Screenshot_1650687153.png" alt="drawing" width="200"/> <img src="Screenshot_1650687156.png" alt="drawing" width="200"/> 
+<img src="Screenshot_1650687159.png" alt="drawing" width="200"/> 
+
