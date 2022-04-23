@@ -24,7 +24,11 @@ class CustomButton extends StatelessWidget {
         onPressed: action,
         child: Text(
           buttonText,
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: textColor,
+          ),
         ),
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(componentColor),

@@ -25,6 +25,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   String initialRoute;
+
   MyApp(this.initialRoute);
 
   @override
@@ -40,6 +41,17 @@ class MyApp extends StatelessWidget {
           appBarTheme: AppBarTheme(
             backgroundColor: mainColor,
           ),
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            backgroundColor: mainColor,
+            selectedIconTheme: IconThemeData(
+              color: textColor,
+            ),
+            selectedItemColor: textColor,
+          ),
+          textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: textColor,
+              displayColor: textColor,
+              fontFamily: 'Poppin'),
         ),
         initialRoute: initialRoute,
         routes: {

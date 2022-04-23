@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:money_transfer/DetailScreenPages/SettingScreens/change_password.dart';
 import 'package:money_transfer/DetailScreenPages/SettingScreens/change_username.dart';
 import 'package:money_transfer/Screens/home.dart';
+import 'package:money_transfer/constants.dart';
 import 'package:money_transfer/my_functions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,19 +26,21 @@ class DetailsSettings extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Settings',
-            style: Theme.of(context)
-                .textTheme
-                .titleLarge!
-                .copyWith(fontSize: 55.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5),
+            child: Text(
+              'Settings',
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(fontSize: 55.0),
+            ),
           ),
-          const SizedBox(height: 5),
           SizedBox(
             width: double.infinity,
             height: 2.0,
             child: Container(
-              color: Colors.blueGrey,
+              color: componentColor,
             ),
           ),
           const SizedBox(height: 5),
@@ -47,12 +50,14 @@ class DetailsSettings extends StatelessWidget {
                 Navigator.pushNamed(
                     context, ChangeUserNameScreen.changeUserNameScreenRoute);
               }),
+          const SizedBox(height: 5),
           SettingsButton(
               buttonText: 'Change password',
               buttonAction: () {
                 Navigator.pushNamed(
                     context, ChangePasswordScreen.changePasswordScreenRoute);
               }),
+          const SizedBox(height: 5),
           SettingsButton(
               buttonText: 'Logout',
               buttonAction: () {
@@ -76,6 +81,7 @@ class SettingsButton extends StatelessWidget {
         Expanded(
           child: MaterialButton(
             padding: EdgeInsets.zero,
+            textColor: textColor,
             onPressed: buttonAction,
             child: SizedBox(
               width: double.infinity,

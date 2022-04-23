@@ -72,7 +72,7 @@ class HistoryStream extends StatelessWidget {
                               historyData[index].toWho,
                               textAlign: TextAlign.start,
                               style: const TextStyle(
-                                fontSize: 14,
+                                fontSize: 16,
                               ),
                             ),
                           ),

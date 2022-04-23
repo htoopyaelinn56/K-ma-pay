@@ -24,7 +24,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: mainColor,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.account_balance),
@@ -36,7 +35,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ],
           currentIndex: currentIndex,
-          selectedItemColor: componentColor,
           onTap: (value) {
             setState(() {
               currentIndex = value;

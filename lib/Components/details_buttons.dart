@@ -19,6 +19,7 @@ class DetailsButton extends StatelessWidget {
           child: Icon(
             icon,
             size: 30.0,
+            color: textColor,
           ),
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(componentColor),

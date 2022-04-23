@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:money_transfer/Components/error_dialog.dart';
 import 'package:money_transfer/Components/my_buttons.dart';
 import 'package:money_transfer/Components/text_field_widget.dart';
+import 'package:money_transfer/my_functions.dart';
 import 'details_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:money_transfer/Providers/provider_data.dart';
@@ -45,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
           context,
           DetailsScreen.detailsScreenRoute,
         );
-      } catch (e) {
+      } on FirebaseException {
         showDialog<void>(
           context: context,
           barrierDismissible: true, // user must tap button!
