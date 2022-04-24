@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:money_transfer/constants.dart';
 
+import '../../datamodels/history_data.dart';
+
 class HistoryStream extends StatelessWidget {
   const HistoryStream({
     Key? key,
@@ -135,16 +137,4 @@ class HistoryStream extends StatelessWidget {
       },
     );
   }
-}
-
-class HistoryData {
-  final String toWho;
-  final Timestamp timestamp;
-  final int amount;
-
-  HistoryData({
-    required this.timestamp,
-    required this.amount,
-    required this.toWho,
-  });
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:money_transfer/DetailScreenPages/DetailsPayBill/bill_pay_screen.dart';
+import 'package:money_transfer/DetailScreenPages/DetailsTopUp/credit_card_buy_history.dart';
 import 'package:money_transfer/DetailScreenPages/SettingScreens/change_password.dart';
 import 'package:money_transfer/DetailScreenPages/SettingScreens/change_username.dart';
 import 'package:money_transfer/Screens/details_screen.dart';
@@ -71,6 +72,8 @@ class MyApp extends StatelessWidget {
               ChangePasswordScreen(),
           ChangeUserNameScreen.changeUserNameScreenRoute: (context) =>
               ChangeUserNameScreen(),
+          CreditCardHistoryScreen.creditCardHistoryScreenRoute: (context) =>
+              CreditCardHistoryScreen(),
         },
       ),
     );
