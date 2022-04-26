@@ -15,51 +15,48 @@ class CreditCardHistoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Card Purchase History'),
-        ),
-        body: StreamBuilder<QuerySnapshot>(
-          stream: _db
-              .collection('history')
-              .doc('${_auth.currentUser?.email} history')
-              .collection('history data')
-              .orderBy('time', descending: true)
-              .snapshots(),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return Expanded(
-                child: Center(
-                  child: progressIndicator,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Card Purchase History'),
+      ),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: _db
+            .collection('history')
+            .doc('${_auth.currentUser?.email} history')
+            .collection('history data')
+            .orderBy('time', descending: true)
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Expanded(
+              child: Center(
+                child: progressIndicator,
+              ),
+            );
+          }
+          var data = snapshot.data!.docs;
+          List<GiftCardHistoryEntity> ggList = [];
+          for (var i in data) {
+            var d = i.data() as Map;
+            if (d['cardcode'] != null) {
+              ggList.add(
+                GiftCardHistoryEntity(
+                  cardName: d['transfer'],
+                  cardCode: d['cardcode'],
+                  amount: d['amount'],
+                  timestamp: d['time'],
                 ),
               );
             }
-            var data = snapshot.data!.docs;
-            List<GiftCardHistoryEntity> ggList = [];
-            for (var i in data) {
-              var d = i.data() as Map;
-              if (d['cardcode'] != null) {
-                ggList.add(
-                  GiftCardHistoryEntity(
-                    cardName: d['transfer'],
-                    cardCode: d['cardcode'],
-                    amount: d['amount'],
-                    timestamp: d['time'],
-                  ),
-                );
-              }
-            }
+          }
 
-            return ListView.builder(
-              itemBuilder: (context, index) {
-                return _HistoryCard(
-                    giftCardHistoryEntity: ggList, index: index);
-              },
-              itemCount: ggList.length,
-            );
-          },
-        ),
+          return ListView.builder(
+            itemBuilder: (context, index) {
+              return _HistoryCard(giftCardHistoryEntity: ggList, index: index);
+            },
+            itemCount: ggList.length,
+          );
+        },
       ),
     );
   }
@@ -132,9 +129,6 @@ class _HistoryCard extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-          const SizedBox(
-            height: 10,
           ),
         ],
       ),

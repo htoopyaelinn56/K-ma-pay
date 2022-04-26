@@ -43,9 +43,10 @@ class _LoginScreenState extends State<LoginScreen> {
         //to next page
         Provider.of<MyProvider>(context, listen: false).greetings =
             'Welcome back';
-        Navigator.pushNamed(
+        Navigator.pushNamedAndRemoveUntil(
           context,
           DetailsScreen.detailsScreenRoute,
+          (Route<dynamic> route) => false,
         );
       } on FirebaseException catch (e) {
         showDialog<void>(
