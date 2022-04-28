@@ -11,6 +11,7 @@ All backend are handled with Firebase only
 - pay bills
 - show history of activites
 - show your info
+- push notification
 
 ## Screenshots
 
