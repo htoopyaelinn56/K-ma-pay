@@ -23,9 +23,7 @@ void main() async {
   await Firebase.initializeApp();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   var email = prefs.get('email');
-  if (email != null) {
-    await OneSignal.shared.setExternalUserId(email.toString());
-  }
+
   runApp(MyApp(email == null ? '/' : DetailsScreen.detailsScreenRoute));
 }
 
@@ -42,11 +40,22 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     createSignalInstance();
+    setExteranlID();
   }
 
   void createSignalInstance() async {
     await OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
     await OneSignal.shared.setAppId(kAppId);
+  }
+
+  void setExteranlID() async {
+    if (widget.initialRoute == '/') {
+      return;
+    } else {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      var email = prefs.get('email');
+      await OneSignal.shared.setExternalUserId(email.toString());
+    }
   }
 
   @override

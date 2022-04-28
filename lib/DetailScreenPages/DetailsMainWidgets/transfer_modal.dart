@@ -104,7 +104,7 @@ class _TransferModelState extends State<TransferModel> {
                   'transfer': 'to ${widget.emailController.text}',
                 });
 
-                //push notification here
+                //push notification here //widget.emailController.text.trimRight()
                 await sendPushNotification([
                   widget.emailController.text.trimRight()
                 ], 'Received ${widget.moneyController.text}\$ from ${_auth.currentUser!.email!}.',
@@ -149,7 +149,7 @@ class _TransferModelState extends State<TransferModel> {
       Uri.parse('https://onesignal.com/api/v1/notifications'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
-        "xx": "xx xx" // xxxxx is api key it can't be public
+        "xxxxx": "xxxxx xxxxx" // xxxxx is api key it can't be public
       },
       body: jsonEncode(<String, dynamic>{
         "app_id": kAppId,

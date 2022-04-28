@@ -16,7 +16,6 @@ class DetailsScreen extends StatefulWidget {
 
 class _DetailsScreenState extends State<DetailsScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
   int currentIndex = 0;
 
   List<Widget> pagesList = [

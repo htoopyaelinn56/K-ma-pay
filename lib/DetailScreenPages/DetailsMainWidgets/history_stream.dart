@@ -41,7 +41,7 @@ class HistoryStream extends StatelessWidget {
             child: const Center(
               child: Text(
                 'No data',
-                style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
           );
