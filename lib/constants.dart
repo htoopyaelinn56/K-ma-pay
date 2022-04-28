@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:money_transfer/datamodels/gift_card.dart';
 import 'package:money_transfer/datamodels/pay_bill_object.dart';
 
+const String kAppId = '90b64f07-2906-4096-a9de-8f9ea50529ff';
 Color mainColor = const Color(0xff181b35);
 Color componentColor = Color(0xff4a148c);
 Color textColor = const Color(0xffffacceff);

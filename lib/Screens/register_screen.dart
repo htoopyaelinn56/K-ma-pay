@@ -5,6 +5,7 @@ import 'package:money_transfer/Components/text_field_widget.dart';
 import 'package:money_transfer/Screens/details_screen.dart';
 import 'package:money_transfer/constants.dart';
 import 'package:money_transfer/Providers/provider_data.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -64,6 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         showToast('Account created successfully.');
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('email', _auth.currentUser!.email!);
+        await OneSignal.shared.setExternalUserId(_emailController.text.trim());
         Provider.of<MyProvider>(context, listen: false).greetings = 'Welcome';
         Navigator.pushNamedAndRemoveUntil(
           context,

@@ -1,9 +1,11 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:money_transfer/DetailScreenPages/details_main.dart';
 import 'package:money_transfer/DetailScreenPages/details_settings.dart';
 import 'package:money_transfer/constants.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class DetailsScreen extends StatefulWidget {
   static String detailsScreenRoute = 'detailsScreenRoute';
@@ -13,6 +15,8 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   int currentIndex = 0;
 
   List<Widget> pagesList = [

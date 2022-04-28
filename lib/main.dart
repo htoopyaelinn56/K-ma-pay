@@ -16,19 +16,38 @@ import 'constants.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   var email = prefs.get('email');
+  if (email != null) {
+    await OneSignal.shared.setExternalUserId(email.toString());
+  }
   runApp(MyApp(email == null ? '/' : DetailsScreen.detailsScreenRoute));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   String initialRoute;
-
   MyApp(this.initialRoute);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    createSignalInstance();
+  }
+
+  void createSignalInstance() async {
+    await OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
+    await OneSignal.shared.setAppId(kAppId);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +77,7 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'Poppin',
               ),
         ),
-        initialRoute: initialRoute,
+        initialRoute: widget.initialRoute,
         routes: {
           '/': (context) => HomeScreen(),
           LoginScreen.loginScreenRoute: (context) => LoginScreen(),

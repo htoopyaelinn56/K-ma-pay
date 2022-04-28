@@ -3,14 +3,13 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:money_transfer/Components/error_dialog.dart';
 import 'package:money_transfer/Components/my_buttons.dart';
 import 'package:money_transfer/Components/text_field_widget.dart';
-import 'package:money_transfer/my_functions.dart';
-
 import 'details_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:money_transfer/Providers/provider_data.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:money_transfer/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
   static String loginScreenRoute = 'loginScreen';
@@ -40,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
             email: _emailController.text.trim(), password: _pwdController.text);
         SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('email', _auth.currentUser!.email!);
+        await OneSignal.shared.setExternalUserId(_emailController.text.trim());
         //to next page
         Provider.of<MyProvider>(context, listen: false).greetings =
             'Welcome back';

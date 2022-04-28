@@ -8,6 +8,8 @@ import 'package:money_transfer/constants.dart';
 import 'package:money_transfer/Providers/provider_data.dart';
 import 'package:provider/provider.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:http/http.dart';
+import 'dart:convert';
 
 class TransferModel extends StatefulWidget {
   TextEditingController emailController;
@@ -101,6 +103,12 @@ class _TransferModelState extends State<TransferModel> {
                   'amount': int.parse(widget.moneyController.text),
                   'transfer': 'to ${widget.emailController.text}',
                 });
+
+                //push notification here
+                await sendPushNotification([
+                  widget.emailController.text.trimRight()
+                ], 'Received ${widget.moneyController.text}\$ from ${_auth.currentUser!.email!}.',
+                    'Money Received');
                 showDialog(
                   context: context,
                   builder: (context) => ErrorDialog(
@@ -133,6 +141,25 @@ class _TransferModelState extends State<TransferModel> {
     setState(() {
       _isLoading = false;
     });
+  }
+
+  Future<Response> sendPushNotification(
+      List<String> tokenIdList, String contents, String heading) async {
+    return await post(
+      Uri.parse('https://onesignal.com/api/v1/notifications'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        "xx": "xx xx" // xxxxx is api key it can't be public
+      },
+      body: jsonEncode(<String, dynamic>{
+        "app_id": kAppId,
+        "include_external_user_ids": tokenIdList,
+        "channel_for_external_user_ids": "push",
+        "small_icon": "ic_stat_onesignal_default",
+        "headings": {"en": heading},
+        "contents": {"en": contents},
+      }),
+    );
   }
 
   @override
